@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		Notification.requestPermission().then(function(permission) {
+		    if(permission === 'granted'){
+		        console.log('用户允许通知');
+		    }else if(permission === 'denied'){
+		        console.log('用户拒绝通知');
+		    }
+		});
+		var Notifi = new Notification('状态更新提醒',{
+		    body: '我是supercls,黑鬼，我正在监视你',
+		    data: {
+       			url: 'http://www.supercls.top/'
+    		},
+		    tag: 'linxin',
+		    icon: 'http://www.supercls.top/img/llf.png',
+		    requireInteraction: true
+		})
+		Notifi.onclick = function(){
+		    window.open(Notifi.data.url, '_blank');      // 打开网址
+		    n.close();                              // 并且关闭通知
+		}
+	</script>
+</body>
+</html>
